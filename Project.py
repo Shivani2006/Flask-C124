@@ -4,13 +4,13 @@ data = [
    {
     "Contact":"9884170728",
     "Name": "Vasuki",
-    "Id": 'false',
-    "Done": 1
+    "Id": 1,
+    "Done": 'false'
    },{
     "Contact":"9884070728",
     "Name": "Anand",
-    "Id": 'false',
-    "Done": 2
+    "Id": 2,
+    "Done":'false'
    }
 ]
 
@@ -22,12 +22,12 @@ def addingTask():
     if not request.json:
         return jsonify({"status":"error","message":"pls provide the data"},400)
     Contact = {
-      "id":data[-1]["id"]+1,
+      "id":data[-1]["Id"]+1,
       "Name":request.json["Name"],
-      "Contact": request.json.get('contact',""),
+      "Contact": request.json.get('Contact',""),
       "Done": False
     }
-    data.append(t)
+    data.append(Contact)
     return jsonify({"status":"success","message":"contact added"})
 
 if __name__ == "__main__":
